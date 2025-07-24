@@ -1,11 +1,26 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <div class="text-lg p-6 space-y-4">
+    <p>
+      Tworzę aplikacje internetowe dla klientów biznesowych. Obecnie w firmie <strong>TaxOrder</strong> projektuję i rozwijam <strong>Portal Klienta</strong>.
+      Parę lat wcześniej wraz z zespołem w firmie <strong>Skłodowscy</strong> napisaliśmy własną aplikację typu MES - <strong>LiteMES</strong>.
+    </p>
+    <p>
+      Pracuję jako <strong>full stack developer</strong>, głównie w technologiach PHP, JavaScript oraz Microsoft SQL Server.
+    </p>
+    <p>
+      Studiowałem na Wydziale Psychologii Uniwersytetu Warszawskiego. W latach 2006-2011 współtworzyłem Studenckie Koło Naukowe Psychologii Uzależnień "Ścieżka".
+      W latach 2011-2014 pracowałem jako wychowawca w świetlicy środowiskowej Powiślańskiej Fundacji Społecznej, po odbyciu 2-letniego stażu zawodowego.
+    </p>
+    <p>
+      Lubię kawę z mlekiem, lubię gotować. Nie lubię marnować czasu. Lubię pomagać ludziom.
+    </p>
+  </div>
 </Layout>
