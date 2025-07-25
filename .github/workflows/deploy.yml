@@ -1,0 +1,68 @@
+name: Build & Deploy
+
+on:
+  workflow_dispatch:  # ręczne uruchamianie
+  push:
+    branches:
+      - main           # automatycznie przy push na main
+
+permissions:
+  contents: read       # potrzebne do checkout repo
+
+jobs:
+  build:
+    name: Build App
+    runs-on: ubuntu-latest
+    outputs:
+      build-artifact: ${{ steps.upload.outputs.artifact-path }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build app
+        run: pnpm build
+
+      - name: Upload dist as artifact
+        id: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  deploy:
+    name: Deploy App
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Deploy via SCP
+        uses: appleboy/scp-action@v0.1.4
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: 'dist/*'
+          target: ${{ secrets.SSH_TARGET }}
+          strip_components: 1
