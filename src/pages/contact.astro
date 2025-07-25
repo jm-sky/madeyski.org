@@ -7,41 +7,33 @@ import "../styles/global.css";
 <Layout title="Contact">
   <h1 class="text-2xl font-bold mb-4">Kontakt</h1>
 
-  <div class="contact-page mx-auto max-w-screen-sm flex flex-col gap-4">
-    <div class="flex flex-row gap-4">
-      <div class="w-36 p-2 flex items-center gap-3">
+  <div class="grid grid-cols-1 items-center md:grid-cols-2 gap-x-3 gap-y-6">
+      <div class="flex items-center justify-end gap-3">
         <Mail size={20} /> E-mail:
       </div>
       <div class="p-2">
         <a href="mailto:jan.madeyski@gmail.com" class="underline-link">jan.madeyski@gmail.com</a>
       </div>
-    </div>
 
-    <div class="flex flex-row gap-4">
-      <div class="w-36 p-2 flex items-center gap-3">
+      <div class="flex items-center justify-end gap-3">
         <Linkedin size={20} /> LinkedIn:
       </div>
       <div class="p-2">
         <a href="https://www.linkedin.com/in/jan-madeyski-964913166/" class="underline-link" rel="noopener noreferrer" target="_blank">Jan Madeyski</a>
       </div>
-    </div>
 
-    <div class="flex flex-row gap-4">
-      <div class="w-36 p-2 flex items-center gap-3">
+      <div class="flex items-center justify-end gap-3">
         <Github size={20} /> GitHub:
       </div>
       <div class="p-2">
         <a href="https://github.com/jm-sky/" class="underline-link" rel="noopener noreferrer" target="_blank">jm-sky</a>
       </div>
-    </div>
 
-    <div class="flex flex-row gap-4">
-      <div class="w-36 p-2 flex items-center gap-3">
+      <div class="flex items-center justify-end gap-3">
         <Codepen size={20} /> CodePen:
       </div>
       <div class="p-2">
         <a href="https://codepen.io/jm-sky/" class="underline-link" rel="noopener noreferrer" target="_blank">jm-sky</a>
       </div>
-    </div>
   </div>
 </Layout>
