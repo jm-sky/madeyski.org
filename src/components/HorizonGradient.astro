@@ -5,14 +5,14 @@
   @reference "tailwindcss";
 
   .horizontal-gradient {
-    @apply -z-10 absolute top-0 left-0 w-full h-36 flex items-center justify-center blur-[1px];
+    @apply -z-10 absolute top-0 left-0 w-full h-36 flex items-center justify-center blur-[1px] bg-blend-overlay;
 
     background: linear-gradient(
       to bottom,
       var(--color-gray-200) 0%,
       var(--color-white) 49.9%,
       var(--color-gray-200) 50%,
-      var(--color-gray-400) 100%
+      transparent 100%
     );
   }
 </style>
