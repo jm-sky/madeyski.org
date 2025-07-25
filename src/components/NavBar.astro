@@ -1,0 +1,87 @@
+---
+const { pathname } = Astro.url;
+
+interface Link {
+  label: string;
+  href: string;
+  match?: 'exact' | 'startsWith';
+}
+
+const links: Link[] = [
+  { label: "Start", href: "/", match: 'exact' },
+  { label: "O mnie", href: "/about" },
+  { label: "Kontakt", href: "/contact" },
+]
+
+const normalize = (p: string) => p.replace(/\/+$/, '') ?? '/';
+
+const isActive = (link: Link) => {
+  const current = normalize(pathname);
+  const target = normalize(link.href);
+  const mode = link.match ?? 'startsWith';
+  return mode === 'exact'
+    ? current === target
+    : current === target || current.startsWith(target + '/');
+};
+---
+
+<div class="nav-container relative">
+  <nav class="nav-bar container w-full max-w-screen-md mx-auto backdrop-blur-xs">
+    <ul class="z-10 flex items-center justify-center gap-4 text-xl font-black">
+      {links.map((link) => (
+        <li class="mx-4">
+          <a
+            href={link.href}
+            class:list={{ active: isActive(link) }}
+            aria-current={isActive(link) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<style>
+  @reference "tailwindcss";
+
+  .nav-container::before {
+    content: "";
+    @apply absolute top-4 left-0 w-full h-8 -z-10 shadow-xs/50;
+    @apply bg-gradient-to-b from-green-600 to-green-800;
+  }
+
+  .nav-bar {
+    @apply p-2 h-15 flex items-center justify-center rounded-4xl;
+    @apply bg-gradient-to-t from-green-600/50 to-green-800/50;
+    box-shadow: inset 0 0 .5rem 0 rgba(0, 0, 0, 0.5),
+                0 0.25rem .5rem 0 rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-bar::after {
+    content: "";
+    @apply absolute top-1 left-0 inset-x-8 translate-x-4 h-1/2 blur-[1px] bg-white/30 bg-blend-overlay rounded-4xl;
+  }
+
+  .nav-bar a {
+    @apply p-4 text-black hover:text-white/70 transition-colors tracking-wider;
+    text-shadow: rgba(200, 255, 200, 0.8) 1px 2px 4px;
+    transition: all linear 0.3s;
+
+    &:hover {
+      @apply text-white;
+      text-shadow: #000 2px 4px 4px;
+    }
+  }
+
+  .nav-bar a.active {
+    @apply text-white;
+    text-shadow: #000 2px 4px 4px;
+
+    &:hover {
+      text-shadow: #000 2px 5px 10px;
+      transition: all linear 0.3s;
+    }
+  }
+</style>

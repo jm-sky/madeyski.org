@@ -1,0 +1,50 @@
+<div class="logo h-25 flex items-center justify-center">
+  <a href="/" class="logo-text mt-2" data-text="Jan Madeyski">Jan Madeyski</a>
+</div>
+
+<style>
+@reference "tailwindcss";
+@reference "../styles/global.css";
+
+.logo-text {
+  @apply relative z-10;
+  @apply text-6xl font-black capitalize small-caps;
+  @apply bg-clip-text text-transparent;
+  @apply bg-gradient-to-b from-green-400 via-green-600 to-green-950;
+  @apply transition-all duration-250;
+
+  filter: drop-shadow(rgba(0,0,0,0.5) 0px 0px 1px) drop-shadow(rgba(0,0,0,0.3) 0px 0px 2px);
+
+  &:hover {
+    filter: drop-shadow(rgba(0,0,0,0.5) 0px 0px 1px) drop-shadow(rgba(0,0,0,0.3) 0px 0px 2px) brightness(1.25);
+    @apply tracking-wide;
+  }
+
+  &:hover::after {
+    filter: brightness(1.25);
+  }
+}
+
+.logo-text::before {
+  @apply absolute top-full left-0;
+  @apply text-6xl font-black text-black capitalize small-caps;
+  @apply blur-sm;
+  content: attr(data-text);
+  transform: scaleY(.07);
+  translate: 0 calc(-50% - 5px);
+  opacity: .5;
+}
+
+.logo-text::after {
+  @apply pointer-events-none;
+  @apply absolute top-full left-0;
+  @apply text-6xl font-black text-transparent capitalize small-caps;
+  @apply bg-clip-text;
+  @apply bg-gradient-to-b from-green-50/0 via-green-500/0 to-green-800;
+  font-variant: small-caps;
+  content: attr(data-text);
+  transform: scaleY(-1);
+  translate: 0 -10px;
+  opacity: .3;
+}
+</style>

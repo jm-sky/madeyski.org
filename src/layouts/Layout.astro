@@ -1,44 +1,36 @@
+---
+import LogoText from "../components/LogoText.astro";
+import HorizonGradient from "../components/HorizonGradient.astro";
+import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title = "Start" } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Madeyski.org</title>
+		<title>Madeyski.org | {title}</title>
+    <meta name="description" content="My personal website" />
 	</head>
 	<body class="bg-gray-400">
-    <div class="top-horizontal-gradient">
-    </div>
-    <div class="container w-full max-w-screen-lg mx-auto">
-      <div class="logo h-25 flex items-center justify-center">
-        <a href="/" class="logo-text mt-2">Madeyski.org</a>
-      </div>
+    <HorizonGradient />
 
-      <nav class="nav-bar">
-        <ul class="z-10 flex items-center justify-center gap-4 text-xl font-black">
-          <li class="mx-4">
-            <a href="/" class="link active">Start</a>
-          </li>
-          <li class="mx-4">
-            <a href="/" class="link">About</a>
-          </li>
-          <li class="mx-4">
-            <a href="/" class="link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <LogoText />
+    <NavBar />
 
-    <div class="min-h-100 mt-6 container w-full max-w-screen-lg mx-auto bg-white/80 backdrop-blur-sm rounded-4xl p-4 shadow-md/30">
+    <div class="min-h-100 mt-6 px-10 py-8 container w-full max-w-screen-lg mx-auto text-shadow-sm bg-white/80 backdrop-blur-sm rounded-3xl shadow-md/30">
       <slot />
     </div>
 
-    <div class="mt-4 container w-full max-w-screen-lg mx-auto">
-      <footer class="flex items-center justify-center text-xs text-gray-800">
-        <p class="text-center">Korzystanie z serwisu oznacza akceptację regulaminu i polityki cookies. <a href="/polityka-cookies" class="text-gray-900 hover:text-gray-950">Polityka cookies</a></p>
-      </footer>
-    </div>
+    <Footer />
 	</body>
 </html>
 
@@ -51,53 +43,4 @@
 		width: 100%;
 		height: 100%;
 	}
-
-  .top-horizontal-gradient {
-    @apply -z-10 absolute top-0 left-0 w-full h-36 flex items-center justify-center blur-[1px];
-
-    background: linear-gradient(
-      to bottom,
-      var(--color-gray-200) 0%,
-      var(--color-white) 49.9%,
-      var(--color-gray-200) 50%,
-      var(--color-gray-400) 100%
-    );
-  }
-
-  .logo-text {
-    @apply text-6xl font-black text-transparent;
-    @apply bg-clip-text bg-gradient-to-b from-green-300 to-green-800;
-    @apply drop-shadow-sm/60;
-    @apply transition-all duration-300;
-
-    &:hover {
-      @apply scale-105;
-    }
-  }
-
-  .nav-bar {
-    @apply p-2 h-15 flex items-center justify-center rounded-4xl bg-gradient-to-t from-green-600/90 to-green-800/90 backdrop-blur-sm shadow-lg/50;
-    @apply before:absolute before:top-1 before:left-0 before:inset-x-8 before:translate-x-4 before:h-1/2 before:blur-[1px] before:bg-white/30 before:bg-blend-overlay before:rounded-4xl;
-  }
-
-  .nav-bar .link {
-    @apply p-4 text-black hover:text-white/70 transition-colors;
-    text-shadow: rgba(200, 255, 200, 0.8) 1px 2px 4px;
-    transition: all linear 0.3s;
-
-    &:hover {
-      @apply text-white;
-      text-shadow: #000 2px 4px 4px;
-    }
-  }
-
-  .nav-bar .link.active {
-    @apply text-white;
-    text-shadow: #000 2px 4px 4px;
-
-    &:hover {
-      text-shadow: #000 2px 5px 10px;
-      transition: all linear 0.3s;
-    }
-  }
 </style>

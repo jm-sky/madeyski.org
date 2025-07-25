@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@utility small-caps {
+  font-variant: small-caps;
+}
+
+@view-transition {
+  navigation: auto;
+}
