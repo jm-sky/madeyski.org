@@ -1,18 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Mail, Linkedin, Github, Codepen } from 'lucide-astro';
+import { Mail, Linkedin, Github, Codepen, Globe } from 'lucide-astro';
 import "../styles/global.css";
 ---
 
-<Layout title="Contact">
+<Layout title="Kontakt">
   <h1 class="text-2xl font-bold mb-4">Kontakt</h1>
 
-  <div class="grid grid-cols-[1fr_2fr] md:grid-cols-2 items-center gap-x-3 gap-y-6">
+  <div class="grid grid-cols-[1fr_2fr] md:grid-cols-2 items-center gap-x-3 gap-y-4">
       <div class="flex items-center justify-end gap-3">
         <Mail size={20} /> E-mail:
       </div>
       <div class="p-2">
         <a href="mailto:jan.madeyski@gmail.com" class="font-semibold underline-link">jan.madeyski@gmail.com</a>
+      </div>
+
+      <div class="flex items-center justify-end gap-3">
+        <Globe size={20} /> WWW:
+      </div>
+      <div class="p-2">
+        <a href="https://dev-made.it" class="font-semibold underline-link" rel="noopener noreferrer" target="_blank">dev-made.it</a>
       </div>
 
       <div class="flex items-center justify-end gap-3">
