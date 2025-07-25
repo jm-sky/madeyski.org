@@ -1,6 +1,9 @@
-# madeyski.org
+# Madeyski.org
 
 To jest moja osobista strona domowa.
+
+<img width="1178" height="718" alt="obraz" src="https://github.com/user-attachments/assets/b3fab9ac-3abf-441b-baaf-3cc27700eb26" />
+
 
 ## 🧞 Commands
 
