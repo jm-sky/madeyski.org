@@ -1,38 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Mail, Linkedin, Github, Codepen } from 'lucide-astro';
 import "../styles/global.css";
-
 ---
 
 <Layout title="Contact">
   <h1 class="text-2xl font-bold mb-4">Kontakt</h1>
 
-  <form class="mx-auto max-w-screen-sm grid grid-cols-1 md:grid-cols-[10rem_1fr] gap-4">
-    <div class="p-2">
-      E-mail:
-    </div>
-    <div class="">
-     <input type="email" placeholder="E-mail" class="w-full border border-gray-700/50 rounded bg-gray-100 p-2" />
-    </div>
-
-    <div class="p-2">
-      Temat:
-    </div>
-    <div>
-     <input type="text" placeholder="Temat" class="w-full border border-gray-700/50 rounded bg-gray-100 p-2" />
+  <div class="contact-page mx-auto max-w-screen-sm flex flex-col gap-4">
+    <div class="flex flex-row gap-4">
+      <div class="w-36 p-2 flex items-center gap-3">
+        <Mail size={20} /> E-mail:
+      </div>
+      <div class="p-2">
+        <a href="mailto:jan.madeyski@gmail.com" class="underline-link">jan.madeyski@gmail.com</a>
+      </div>
     </div>
 
-    <div class="p-2">
-      Wiadomość:
-    </div>
-    <div>
-     <textarea placeholder="Wiadomość" class="w-full border border-gray-700/50 rounded bg-gray-100 p-2" />
-    </div>
-
-    <div></div>
-    <div class="mx-auto mt-2">
-      <button type="submit" class="w-full font-semibold border shadow-xs rounded-lg bg-gray-100 px-4 py-2 hover:bg-gray-200 transition-colors">Send</button>
+    <div class="flex flex-row gap-4">
+      <div class="w-36 p-2 flex items-center gap-3">
+        <Linkedin size={20} /> LinkedIn:
+      </div>
+      <div class="p-2">
+        <a href="https://www.linkedin.com/in/jan-madeyski-964913166/" class="underline-link" rel="noopener noreferrer" target="_blank">Jan Madeyski</a>
+      </div>
     </div>
 
-  </form>
+    <div class="flex flex-row gap-4">
+      <div class="w-36 p-2 flex items-center gap-3">
+        <Github size={20} /> GitHub:
+      </div>
+      <div class="p-2">
+        <a href="https://github.com/jm-sky/" class="underline-link" rel="noopener noreferrer" target="_blank">jm-sky</a>
+      </div>
+    </div>
+
+    <div class="flex flex-row gap-4">
+      <div class="w-36 p-2 flex items-center gap-3">
+        <Codepen size={20} /> CodePen:
+      </div>
+      <div class="p-2">
+        <a href="https://codepen.io/jm-sky/" class="underline-link" rel="noopener noreferrer" target="_blank">jm-sky</a>
+      </div>
+    </div>
+  </div>
 </Layout>

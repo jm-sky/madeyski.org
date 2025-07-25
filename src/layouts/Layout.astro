@@ -4,6 +4,7 @@ import HorizonGradient from "../components/HorizonGradient.astro";
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 import RainbowGradient from "../components/RainbowGradient.astro";
+import LightCircles from "../components/LightCircles.astro";
 
 interface Props {
   title: string;
@@ -24,6 +25,7 @@ const { title = "Start" } = Astro.props;
 	<body class="bg-gray-400 overflow-hidden">
     <HorizonGradient />
     <RainbowGradient />
+    <LightCircles />
     <LogoText />
     <NavBar />
 

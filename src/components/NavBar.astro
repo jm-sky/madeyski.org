@@ -1,4 +1,6 @@
 ---
+import BackgroundBar from "./BackgroundBar.astro";
+
 const { pathname } = Astro.url;
 
 interface Link {
@@ -26,6 +28,7 @@ const isActive = (link: Link) => {
 ---
 
 <div class="nav-container relative">
+  <BackgroundBar class="absolute top-4" />
   <nav class="nav-bar container w-full max-w-screen-md mx-auto backdrop-blur-xs">
     <ul class="z-10 flex items-center justify-center gap-4 text-xl font-black">
       {links.map((link) => (
@@ -45,12 +48,6 @@ const isActive = (link: Link) => {
 
 <style>
   @reference "tailwindcss";
-
-  .nav-container::before {
-    content: "";
-    @apply absolute top-4 left-0 w-full h-8 -z-10 shadow-xs/50;
-    @apply bg-gradient-to-b from-green-600 to-green-800;
-  }
 
   .nav-bar {
     @apply p-2 h-15 flex items-center justify-center rounded-4xl;

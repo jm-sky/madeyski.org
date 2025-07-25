@@ -1,9 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: var(--color-emerald-500);
+}
+
 @utility small-caps {
   font-variant: small-caps;
 }
 
 @view-transition {
   navigation: auto;
+}
+
+.underline-link {
+  @apply relative inline-block;
+
+  &::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 -translate-x-1/2 bg-primary transition-all duration-300;
+  }
+
+  &:hover::after {
+    @apply w-full;
+  }
 }
