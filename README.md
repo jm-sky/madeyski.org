@@ -2,7 +2,7 @@
 
 To jest moja osobista strona domowa.
 
-<img width="1178" height="718" alt="obraz" src="https://github.com/user-attachments/assets/b3fab9ac-3abf-441b-baaf-3cc27700eb26" />
+<img width="1078" height="725" alt="obraz" src="https://github.com/user-attachments/assets/a068cf01-838a-4d68-9fe7-1e7ece3c1281" />
 
 
 ## 🧞 Commands
