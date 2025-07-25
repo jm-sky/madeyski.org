@@ -11,7 +11,7 @@ interface Link {
 
 const links: Link[] = [
   { label: "Start", href: "/", match: 'exact' },
-  { label: "O mnie", href: "/about" },
+  { label: "Świadectwo", href: "/testimony" },
   { label: "Kontakt", href: "/contact" },
 ]
 
@@ -31,9 +31,9 @@ const isActive = (link: Link) => {
   <BackgroundBar class="absolute top-4" />
 
   <nav class="nav-bar container w-full max-w-screen-md mx-auto backdrop-blur-xs">
-    <ul class="z-10 flex items-center justify-center gap-4 text-xl font-black">
+    <ul class="z-10 flex flex-row items-center justify-evenly gap-6 md:gap-8 lg:gap-10 text-xl font-black">
       {links.map((link) => (
-        <li class="mx-4">
+        <li>
           <a
             href={link.href}
             class:list={{ active: isActive(link) }}
@@ -73,7 +73,7 @@ const isActive = (link: Link) => {
   }
 
   .nav-bar a {
-    @apply p-4 text-black hover:text-white/70 transition-colors tracking-wider;
+    @apply px-2 py-4 text-black hover:text-white/70 transition-colors tracking-wider;
     text-shadow: rgba(200, 255, 200, 0.8) 1px 2px 4px;
     transition: all linear 0.3s;
 
