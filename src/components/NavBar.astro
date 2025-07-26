@@ -27,11 +27,11 @@ const isActive = (link: Link) => {
 };
 ---
 
-<div class="nav-container relative">
-  <BackgroundBar class="absolute top-4" />
+<div class="nav-container relative px-2">
+  <BackgroundBar class="absolute left-0 right-0 top-4" />
 
   <nav class="nav-bar container w-full max-w-screen-sm mx-auto backdrop-blur-xs">
-    <ul class="z-10 flex flex-row items-center justify-evenly gap-4 md:gap-8 lg:gap-12 text-xl font-black">
+    <ul class="z-10 flex flex-row items-center justify-evenly gap-3 md:gap-8 lg:gap-12 text-xl font-black">
       {links.map((link) => (
         <li>
           <a
