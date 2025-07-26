@@ -23,14 +23,14 @@ const { title = "Start" } = Astro.props;
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>Madeyski.org | {title}</title>
 	</head>
-	<body class="flex flex-col bg-gray-400 md:overflow-hidden">
+	<body class="flex flex-col min-h-screen bg-gray-400 md:overflow-hidden">
     <HorizonGradient />
     <RainbowGradient />
     <LightCircles />
     <LogoText />
     <NavBar />
 
-    <div class="min-h-100 mt-6 px-4 md:px-16 py-4 md:py-8 container w-full max-w-screen-lg mx-auto text-shadow-sm bg-white/60 backdrop-blur-lg rounded-3xl shadow-md/30">
+    <div class="mt-6 px-8 md:px-16 py-4 md:py-8 container w-full max-w-screen-lg mx-auto text-shadow-sm bg-white/60 backdrop-blur-lg rounded-3xl shadow-md/30">
       <slot />
     </div>
 
