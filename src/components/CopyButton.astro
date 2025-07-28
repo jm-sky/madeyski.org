@@ -1,0 +1,19 @@
+---
+import { Copy, Check } from 'lucide-astro';
+
+export interface Props {
+  text: string;
+  size?: number;
+}
+
+const { text, size = 16 } = Astro.props;
+---
+
+<button
+  class="copy-button group ml-2 p-1 text-gray-800 cursor-pointer rounded opacity-50 hover:opacity-100 hover:scale-105 transition-all duration-200"
+  data-copy-text={text}
+  title="Copy to clipboard"
+>
+  <Copy size={size} class="copy-icon group-[.copied]:hidden" />
+  <Check size={size} class="check-icon hidden group-[.copied]:block group-[.copied]:text-green-600" />
+</button>

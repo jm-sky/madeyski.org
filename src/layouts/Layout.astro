@@ -35,6 +35,11 @@ const { title = "Start" } = Astro.props;
     </div>
 
     <Footer />
+    
+    <script>
+      import { clipboardHandler } from '../utils/clipboardHandler';
+      clipboardHandler.init();
+    </script>
 	</body>
 </html>
 
