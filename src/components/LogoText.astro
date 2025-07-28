@@ -1,4 +1,4 @@
-<div class="logo -mt-3 h-25 flex items-center justify-center">
+<div class="logo -mt-3 min-h-20 md:min-h-25 flex items-center justify-center">
   <a href="/" class="logo-text mt-2 relative z-10 text-5xl md:text-6xl font-black capitalize small-caps bg-clip-text text-transparent" data-text="Jan Madeyski">Jan Madeyski</a>
 </div>
 
@@ -24,7 +24,7 @@
 
 .logo-text::before {
   @apply absolute top-full left-0;
-  @apply text-6xl font-black text-black capitalize small-caps;
+  @apply text-5xl md:text-6xl font-black text-black capitalize small-caps;
   @apply blur-sm;
   content: attr(data-text);
   transform: translate(0, calc(-50% - 5px)) scaleY(.07);
