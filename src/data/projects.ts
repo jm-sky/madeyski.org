@@ -114,7 +114,22 @@ export const projects: Project[] = [
       users: 500
     },
     team: ["Piotr Kaczmarski", "Mateusz Tryniszewski", "Piotr Lotka", "Anna Narożnik", "Paweł Khmara", "Mariusz Roszkowski", "Edyta Szubińska", "Damdin Oyunkhu"],
-    technologies: ["PHP", "Laravel", "Microsoft SQL Server", "Vue.js", "HTML", "Docker", "Apache"]
+    technologies: ["PHP", "Laravel", "Microsoft SQL Server", "Vue.js", "HTML", "Docker", "Apache", "Nginx", "Git"],
+    links: {
+      demo: "https://portal-klienta.sklodowscy.pl"
+    }
+  },
+  {
+    id: "jira-integration",
+    name: "JIRA Integration",
+    category: "Internal",
+    status: "Active",
+    company: "Skłodowscy Sp. z o.o.",
+    dateEnd: "2025-07-01",
+    dateStart: "2025-05-01",
+    description: "Jira Integration is a Connect App and microservice for integrating Jira issues and worklogs with our internal system.",
+    myRole: "Full Stack Developer & System Architect",
+    technologies: ["Python", "Flask", "Jira", "Docker", "Git", "Linux", "Connect App"],
   },
   {
     id: "documents-generator",
@@ -127,7 +142,7 @@ export const projects: Project[] = [
     description: "Documents Generator is a microservice for generating documents from templates, i.e. agreements with customers.",
     myRole: "Full Stack Developer & System Architect",
     team: ["Piotr Lotka"],
-    technologies: ["Python", "Flask", "JavaScript", "Vue.js", "HTML", "CSS"],
+    technologies: ["Python", "Flask", "JavaScript", "Vue.js", "HTML", "CSS",  "Git"],
   },
   {
     id: "azure-ocr-service",
@@ -139,7 +154,7 @@ export const projects: Project[] = [
     dateStart: "2025-05-01",
     description: "Azure OCR Service is a microservice for extracting text from images.",
     myRole: "Full Stack Developer & System Architect",
-    technologies: ["Python", "FastAPI", "Azure", "Docker", "Git", "Linux"],
+    technologies: ["Python", "Django", "Azure", "Docker", "Git", "Linux"],
   },
   {
     id: "saasbase",
@@ -151,7 +166,7 @@ export const projects: Project[] = [
     dateStart: "2025-04-01",
     description: "A comprehensive multi-tenant SaaS platform designed for small to medium businesses to manage their operations. Features include company management, financial document handling, task management, and team collaboration. The system integrates with multiple external APIs including Polish REGON database for company verification, Ministry of Finance APIs, EU VIES for VAT validation, and IBAN verification services. Includes Stripe integration for subscription payments and comprehensive admin dashboard.",
     links: {
-      demo: "https://saasbase.demo.example.com"
+      demo: "https://saasbase.ovh"
     },
     myRole: "Founder & Full Stack Developer",
     scale: {
@@ -160,7 +175,7 @@ export const projects: Project[] = [
       teamSize: 1,
       users: 50
     },
-    technologies: ["PHP", "Laravel", "PostgreSQL", "HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS", "XML", "Docker", "Git", "Linux"]
+    technologies: ["PHP", "Laravel", "PostgreSQL", "HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS", "XML", "Docker", "Git", "Linux", "Caddy"]
   },
   {
     id: "company-hub",
@@ -173,6 +188,9 @@ export const projects: Project[] = [
     description: "Api service integrating company data from REGON, MF, VIES and IBAN APIs.",
     myRole: "Founder & Full Stack Developer",
     technologies: ["Python", "FastAPI", "React", "Next.js", "HTML", "TailwindCSS", "PostgreSQL", "Docker", "Git", "Linux"],
+    links: {
+      demo: "https://company-hub.dev-made.it"
+    }
   },
   {
     id: "madeyski-org",
@@ -184,7 +202,7 @@ export const projects: Project[] = [
     dateStart: "2025-07-01",
     description: "Development of a personal website for a software engineer.",
     myRole: "Frontend Developer",
-    technologies: ["JavaScript", "Nuxt", "TailwindCSS", "HTML", "CSS"],
+    technologies: ["JavaScript", "Astro", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
     clients: ["Jan Madeyski"],
     links: {
       demo: "https://madeyski.org",
@@ -201,7 +219,7 @@ export const projects: Project[] = [
     dateStart: "2025-07-01",
     description: "Development of companys web page for managing the construction of a building.",
     myRole: "Frontend Developer",
-    technologies: ["JavaScript", "Nuxt", "TailwindCSS", "HTML", "CSS"],
+    technologies: ["JavaScript", "Nuxt", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
     clients: ["WIARBUD Pavlo Baida"],
     links: {
       demo: "https://wiarbud.dev-made.it",
