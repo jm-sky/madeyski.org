@@ -1,0 +1,50 @@
+---
+import type { Technology } from "../types/experience";
+
+interface Props {
+  technology: Technology;
+}
+
+const { technology } = Astro.props;
+---
+
+<li
+  class="border border-muted-foreground/50 rounded-md p-4 bg-white/5 backdrop-blur-xs hover:bg-white/10 hover:shadow-lg transition-all duration-300"
+>
+  <div class="mb-3">
+    <div class="flex justify-between items-center mb-2">
+      <h4 class="text-lg font-bold">{technology.name}</h4>
+    </div>
+
+    <p class="text-sm text-muted-foreground mb-3">
+      {technology.layer}
+      {technology.category}
+    </p>
+
+    <p class="text-xs text-muted-foreground bg-white/10 mb-3">
+      {technology.projectCount}
+      {technology.projectCount === 1 ? "projekt" : "projektów"}
+    </p>
+
+    {
+      technology.level && (
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-xs text-muted-foreground">
+              Poziom umiejętności
+            </span>
+            <span class="text-xs text-muted-foreground">
+              {technology.level}/5
+            </span>
+          </div>
+          <div class="w-full bg-white/30 rounded-full h-2">
+            <div
+              class="bg-sky-500 h-2 rounded-full transition-all duration-500"
+              style={`width: ${(technology.level / 5) * 100}%`}
+            />
+          </div>
+        </div>
+      )
+    }
+  </div>
+</li>

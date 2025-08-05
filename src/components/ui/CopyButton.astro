@@ -1,12 +1,12 @@
 ---
-import { Copy, Check } from 'lucide-astro';
+import { Check, Copy } from 'lucide-astro';
 
 export interface Props {
-  text: string;
   size?: number;
+  text: string;
 }
 
-const { text, size = 16 } = Astro.props;
+const { size = 16, text } = Astro.props;
 ---
 
 <button
@@ -14,6 +14,6 @@ const { text, size = 16 } = Astro.props;
   data-copy-text={text}
   title="Copy to clipboard"
 >
-  <Copy size={size} class="copy-icon group-[.copied]:hidden" />
-  <Check size={size} class="check-icon hidden group-[.copied]:block group-[.copied]:text-green-600" />
+  <Copy class="copy-icon group-[.copied]:hidden" size={size} />
+  <Check class="check-icon hidden group-[.copied]:block group-[.copied]:text-green-600" size={size} />
 </button>

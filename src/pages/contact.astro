@@ -1,7 +1,8 @@
 ---
+import { Codepen, Github, Globe, Linkedin, Mail } from 'lucide-astro';
+
+import CopyButton from '../components/ui/CopyButton.astro';
 import Layout from '../layouts/Layout.astro';
-import { Mail, Linkedin, Github, Codepen, Globe } from 'lucide-astro';
-import CopyButton from '../components/CopyButton.astro';
 import "../styles/global.css";
 ---
 
@@ -13,7 +14,7 @@ import "../styles/global.css";
         <Mail size={22} /> E-mail:
       </div>
       <div class="p-2 flex items-center">
-        <a href="mailto:jan.madeyski@gmail.com" class="font-semibold underline-link">jan.madeyski@gmail.com</a>
+        <a class="font-semibold underline-link" href="mailto:jan.madeyski@gmail.com">jan.madeyski@gmail.com</a>
         <CopyButton text="jan.madeyski@gmail.com" />
       </div>
 
@@ -21,7 +22,7 @@ import "../styles/global.css";
         <Globe size={22} /> WWW:
       </div>
       <div class="p-2 flex items-center">
-        <a href="https://dev-made.it" class="font-semibold underline-link" rel="noopener noreferrer" target="_blank">dev-made.it</a>
+        <a class="font-semibold underline-link" href="https://dev-made.it" rel="noopener noreferrer" target="_blank">dev-made.it</a>
         <CopyButton text="https://dev-made.it" />
       </div>
 
@@ -29,7 +30,7 @@ import "../styles/global.css";
         <Linkedin size={22} /> LinkedIn:
       </div>
       <div class="p-2 flex items-center">
-        <a href="https://www.linkedin.com/in/jan-madeyski-964913166/" class="font-semibold underline-link" rel="noopener noreferrer" target="_blank">Jan Madeyski</a>
+        <a class="font-semibold underline-link" href="https://www.linkedin.com/in/jan-madeyski-964913166/" rel="noopener noreferrer" target="_blank">Jan Madeyski</a>
         <CopyButton text="https://www.linkedin.com/in/jan-madeyski-964913166/" />
       </div>
 
@@ -37,7 +38,7 @@ import "../styles/global.css";
         <Github size={22} /> GitHub:
       </div>
       <div class="p-2 flex items-center">
-        <a href="https://github.com/jm-sky/" class="font-semibold underline-link" rel="noopener noreferrer" target="_blank">jm-sky</a>
+        <a class="font-semibold underline-link" href="https://github.com/jm-sky/" rel="noopener noreferrer" target="_blank">jm-sky</a>
         <CopyButton text="https://github.com/jm-sky/" />
       </div>
 
@@ -45,7 +46,7 @@ import "../styles/global.css";
         <Codepen size={22} /> CodePen:
       </div>
       <div class="p-2 flex items-center">
-        <a href="https://codepen.io/jm-sky/" class="font-semibold underline-link" rel="noopener noreferrer" target="_blank">jm-sky</a>
+        <a class="font-semibold underline-link" href="https://codepen.io/jm-sky/" rel="noopener noreferrer" target="_blank">jm-sky</a>
         <CopyButton text="https://codepen.io/jm-sky/" />
       </div>
   </div>

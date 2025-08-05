@@ -1,0 +1,49 @@
+---
+import ProjectCard from '../components/ProjectCard.astro';
+import "../styles/global.css";
+import TechnologyCard from '../components/TechnologyCard.astro';
+import { projects } from '../data/projects';
+import { baseTechnologies } from '../data/technologies';
+import Layout from '../layouts/Layout.astro';
+import {
+  calculateTechnologyStats,
+  groupTechnologiesByLayer,
+  layerOrder
+} from '../utils/experience';
+
+// Process data
+const technologies = calculateTechnologyStats(projects, baseTechnologies);
+const groupedTechnologies = groupTechnologiesByLayer(technologies);
+const sortedLayerGroups = layerOrder.filter(layer => groupedTechnologies[layer]);
+---
+
+<Layout title="Doświadczenie">
+  <h1 class="text-3xl font-bold mb-8">IT</h1>
+
+  <div class="space-y-16 text-justify">
+    <section>
+      <h2 class="text-2xl font-bold mb-8">Projekty</h2>
+      <ul class="grid grid-cols-1 gap-6">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-bold mb-8">Technologie</h2>
+      <div class="space-y-6">
+      {sortedLayerGroups.map((layer) => (
+        <div class="bg-white/5 rounded-lg border border-white/10">
+          <h3 class="text-xl font-bold mb-6 text-sky-600 border-b border-sky-600/30 pb-2">{layer}</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {groupedTechnologies[layer].map((technology) => (
+              <TechnologyCard technology={technology} />
+            ))}
+          </ul>
+        </div>
+      ))}
+      </div>
+    </section>
+  </div>
+</Layout>

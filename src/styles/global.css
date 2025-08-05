@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: var(--color-emerald-500);
+  --color-muted-foreground: var(--color-gray-500);
 }
 
 @utility small-caps {
