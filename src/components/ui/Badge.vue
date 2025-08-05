@@ -1,10 +1,8 @@
----
-interface Props {
+<script setup lang="ts">
+const { color = "info", text } = defineProps<{
   color?: "danger" | "info" | "muted" | "success" | "warning";
-  text: string;
-}
-
-const { color = "info", text } = Astro.props as Props;
+  text?: string;
+}>()
 
 const colorClass = {
   danger: "bg-red-500/10 text-red-700/80",
@@ -13,8 +11,10 @@ const colorClass = {
   success: "bg-green-500/10 text-green-700/80",
   warning: "bg-yellow-500/10 text-yellow-700/80",
 }[color];
----
+</script>
 
-<span class={`${colorClass} px-3 py-1 rounded-md text-xs font-semibold`}>
-  {text}
-</span>
+<template>
+  <span :class="`${colorClass} px-3 py-1 rounded-md text-xs font-semibold`">
+    <slot>{{ text }}</slot>
+  </span>
+</template>

@@ -25,3 +25,9 @@
     @apply w-full;
   }
 }
+
+@layer utilities {
+  [data-visible="false"] {
+    display: none !important;
+  }
+}

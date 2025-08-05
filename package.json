@@ -12,10 +12,13 @@
     "lint:check": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@astrojs/vue": "^5.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.3",
     "lucide-astro": "^0.525.0",
-    "tailwindcss": "^4.1.11"
+    "lucide-vue-next": "^0.536.0",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.18"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",

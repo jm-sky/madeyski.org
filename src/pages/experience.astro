@@ -1,5 +1,5 @@
 ---
-import ProjectCard from '../components/ProjectCard.astro';
+import ProjectSearch from '../components/ProjectSearch.vue';
 import "../styles/global.css";
 import TechnologyCard from '../components/TechnologyCard.astro';
 import { projects } from '../data/projects';
@@ -22,12 +22,8 @@ const sortedLayerGroups = layerOrder.filter(layer => groupedTechnologies[layer])
 
   <div class="space-y-16 text-justify">
     <section>
-      <h2 class="text-2xl font-bold mb-8">Projekty</h2>
-      <ul class="grid grid-cols-1 gap-6">
-      {projects.map((project) => (
-        <ProjectCard project={project} />
-      ))}
-    </ul>
+      <h2 class="text-2xl font-bold mb-6">Projekty</h2>
+      <ProjectSearch client:load projects={projects} />
     </section>
 
     <section>
