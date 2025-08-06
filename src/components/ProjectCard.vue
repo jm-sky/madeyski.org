@@ -8,36 +8,24 @@ import type {
 import { formatDateRange } from "../utils/dateFormatter";
 import { firstUp } from "../utils/firstUp";
 import { getPlural } from "../utils/getPlural";
-import Badge from "./ui/Badge.vue";
+import { getStatusVariant, getCategoryVariant } from "../utils/variants";
+import { Badge } from "./ui/badge";
 import Link from "./ui/Link.vue";
-import Tag from "./ui/Tag.vue";
 
 const { project } = defineProps<{
   project: Project;
 }>();
-
-const getCategoryColor = (category: ProjectCategory) => {
-  if (category === "Production") return "success";
-  if (category === "Internal") return "info";
-  return "muted";
-};
-
-const getStatusColor = (status: ProjectStatus) => {
-  if (status === "Active") return "success";
-  if (status === "Staging") return "info";
-  return "muted";
-};
 </script>
 
 <template>
   <li
-    class="flex flex-col gap-4 border border-muted-foreground/50 rounded-lg pt-6 p-8 bg-white/30 hover:scale-102 hover:bg-white/50 hover:shadow-lg transition-all duration-300"
+    class="flex flex-col gap-4 border border-border rounded-lg pt-6 p-8 bg-white/30 hover:scale-102 hover:bg-white/50 hover:shadow-lg transition-all duration-300"
   >
     <div class="flex justify-between items-start gap-4">
       <h4 class="text-2xl font-bold" :id="project.id">{{ project.name }}</h4>
       <div class="flex items-center gap-2">
-        <Badge v-if="project.status" :color="getStatusColor(project.status)" :text="firstUp(project.status)" />
-        <Badge v-if="project.category" :color="getCategoryColor(project.category)" :text="project.category" />
+        <Badge v-if="project.status" :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
+        <Badge v-if="project.category" :variant="getCategoryVariant(project.category)">{{ project.category }}</Badge>
       </div>
     </div>
 
@@ -93,7 +81,13 @@ const getStatusColor = (status: ProjectStatus) => {
     <div class="text-sm">
       <span class="font-semibold text-muted-foreground">Technologie:</span>
       <div class="flex flex-wrap gap-2 mt-2">
-        <Tag v-for="tech in project.technologies" :key="tech" :tech="tech" />
+        <Badge
+          v-for="tech in project.technologies"
+          :key="tech"
+          variant="info"
+        >
+          {{ tech }}
+        </Badge>
       </div>
     </div>
   </li>
