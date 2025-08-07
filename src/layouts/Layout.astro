@@ -1,10 +1,11 @@
 ---
-import LogoText from "../components/LogoText.astro";
-import HorizonGradient from "../components/HorizonGradient.astro";
-import Footer from "../components/Footer.astro";
-import NavBar from "../components/NavBar.astro";
-import RainbowGradient from "../components/RainbowGradient.astro";
-import LightCircles from "../components/LightCircles.astro";
+import "../styles/global.css";
+import HorizonGradient from "../components/background/HorizonGradient.astro";
+import LightCircles from "../components/background/LightCircles.astro";
+import RainbowGradient from "../components/background/RainbowGradient.astro";
+import LogoText from "../components/branding/LogoText.astro";
+import Footer from "../components/navigation/Footer.astro";
+import NavBar from "../components/navigation/NavBar.astro";
 
 interface Props {
   title: string;
@@ -17,25 +18,25 @@ const { title = "Start" } = Astro.props;
 <html lang="pl">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-    <meta name="description" content="My personal website" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta content="width=device-width" name="viewport" />
+    <meta content="My personal website" name="description" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+		<link href="/favicon.ico" rel="icon" type="image/x-icon" />
 		<title>Madeyski.org | {title}</title>
 	</head>
-	<body class="flex flex-col min-h-screen bg-gray-400 md:overflow-hidden">
+	<body class="flex flex-col min-h-screen bg-gray-400">
     <HorizonGradient />
     <RainbowGradient />
     <LightCircles />
     <LogoText />
     <NavBar />
 
-    <div class="mt-6 px-8 md:px-16 py-4 md:py-8 container w-full max-w-screen-lg mx-auto text-shadow-sm bg-white/60 backdrop-blur-lg rounded-3xl shadow-md/30">
+    <div class="mt-6 px-8 md:px-16 py-4 md:py-8 container w-full max-w-screen-lg mx-auto bg-white/60 backdrop-blur-lg rounded-3xl shadow-md/30">
       <slot />
     </div>
 
     <Footer />
-    
+
     <script>
       import { clipboardHandler } from '../utils/clipboardHandler';
       clipboardHandler.init();
@@ -50,7 +51,7 @@ const { title = "Start" } = Astro.props;
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
 	}
 
   body {
