@@ -37,6 +37,7 @@ const {
     />
 
     <TechnologySection
+      v-model:selected-technologies="selectedTechnologies"
       :grouped-technologies="groupedTechnologies"
       :sorted-layer-groups="sortedLayerGroups"
     />

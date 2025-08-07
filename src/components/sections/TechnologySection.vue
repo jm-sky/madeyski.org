@@ -6,6 +6,16 @@ defineProps<{
   groupedTechnologies: Record<string, Technology[]>;
   sortedLayerGroups: string[];
 }>();
+
+const selectedTechnologies = defineModel<string[]>('selectedTechnologies', { required: true });
+
+const toggleTechnology = (technology: Technology) => {
+  if (selectedTechnologies.value.includes(technology.name)) {
+    selectedTechnologies.value = selectedTechnologies.value.filter(t => t !== technology.name);
+  } else {
+    selectedTechnologies.value.push(technology.name);
+  }
+};
 </script>
 
 <template>
@@ -15,7 +25,6 @@ defineProps<{
       <div
         v-for="layer in sortedLayerGroups"
         :key="layer"
-        class="bg-white/5 rounded-lg border border-white/10"
       >
         <h3 class="text-xl font-bold mb-6 text-sky-600 border-b border-sky-600/30 pb-2">{{ layer }}</h3>
         <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -23,6 +32,8 @@ defineProps<{
             v-for="technology in groupedTechnologies[layer]"
             :key="technology.name"
             :technology="technology"
+            :is-selected="selectedTechnologies.includes(technology.name)"
+            @toggle="toggleTechnology(technology)"
           />
         </ul>
       </div>
