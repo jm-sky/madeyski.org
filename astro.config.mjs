@@ -1,5 +1,5 @@
-import tailwindcss from "@tailwindcss/vite";
 import vue from '@astrojs/vue';
+import tailwindcss from "@tailwindcss/vite";
 // @ts-check
 import { defineConfig } from 'astro/config';
 
