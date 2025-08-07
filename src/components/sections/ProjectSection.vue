@@ -30,30 +30,32 @@ const hasActiveFilters = computed(() =>
     <div>
       <!-- Filter Controls -->
       <div class="mb-8 space-y-4">
-        <div class="flex flex-row items-center gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-4">
           <InputClearable
             v-model="searchTerm"
             placeholder="Szukaj projektów..."
             class="w-full"
           />
 
-          <TechnologyFilter
-            v-model:selected-technologies="selectedTechnologies"
-            :has-active-filters
-            :clear-filters="clearFilters"
-            :available-technologies="availableTechnologies"
-          />
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <TechnologyFilter
+              v-model:selected-technologies="selectedTechnologies"
+              :has-active-filters
+              :clear-filters="clearFilters"
+              :available-technologies="availableTechnologies"
+            />
 
-          <div class="flex items-end">
-            <Button
-              v-if="hasActiveFilters"
-              variant="outline"
-              size="default"
-              @click="clearFilters"
-            >
-              <X class="size-4" />
-              Wyczyść filtry
-            </Button>
+            <div class="flex items-end">
+              <Button
+                v-if="hasActiveFilters"
+                variant="outline"
+                size="default"
+                @click="clearFilters"
+              >
+                <X class="size-4" />
+                Wyczyść filtry
+              </Button>
+            </div>
           </div>
         </div>
 

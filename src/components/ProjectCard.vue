@@ -21,9 +21,9 @@ const { project } = defineProps<{
   <li
     class="flex flex-col gap-4 border border-border rounded-lg pt-6 p-8 bg-white/30 hover:scale-102 hover:bg-white/50 hover:shadow-lg transition-all duration-300"
   >
-    <div class="flex justify-between items-start gap-4">
-      <h4 class="text-2xl font-bold" :id="project.id">{{ project.name }}</h4>
-      <div class="flex items-center gap-2">
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+      <h4 class="text-xl sm:text-2xl font-bold" :id="project.id">{{ project.name }}</h4>
+      <div class="flex items-center gap-2 flex-shrink-0">
         <Badge v-if="project.status" :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
         <Badge v-if="project.category" :variant="getCategoryVariant(project.category)">{{ project.category }}</Badge>
       </div>
@@ -34,7 +34,7 @@ const { project } = defineProps<{
         <Calendar :size="16" />
         <span>{{ formatDateRange(project.dateStart, project.dateEnd, true) }}</span>
       </div>
-      <div class="flex items-center justify-center gap-2 whitespace-nowrap">
+      <div class="flex items-center md:justify-center gap-2 whitespace-nowrap">
         <User :size="16" />
         <span>{{ project.myRole }}</span>
       </div>
