@@ -1,0 +1,16 @@
+---
+import "../styles/global.css";
+import ProjectsPage from '../components/pages/ProjectsPage.vue';
+import Layout from '../layouts/Layout.astro';
+
+---
+
+<Layout title="Doświadczenie">
+  <h1 class="text-3xl font-bold mb-4">IT</h1>
+
+  <p class="text-muted-foreground mb-6">
+    Poniżej lista projektów, które zrealizowałem w ramach mojej pracy.
+  </p>
+
+  <ProjectsPage client:load />
+</Layout>
