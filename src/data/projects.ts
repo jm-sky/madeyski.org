@@ -235,20 +235,34 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "wiarbud",
-    name: "WIARBUD",
+    id: "dev-made-it-template",
+    name: "DEV Made IT Template",
     category: "Production",
     status: "Active",
     company: "DEV Made IT",
-    dateEnd: "2025-07-30",
     dateStart: "2025-07-01",
-    description: "Development of companys web page for managing the construction of a building.",
+    dateEnd: null,
+    description: "A reusable template for building company websites with modern technologies. Multiple client websites have been built using this template, featuring responsive design, performance optimization, and SEO-friendly structure.",
     myRole: "Frontend Developer",
     technologies: ["TypeScript", "Nuxt", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
-    clients: ["WIARBUD Pavlo Baida"],
-    links: {
-      demo: "https://wiarbud.dev-made.it",
-      github: "https://github.com/jm-sky/wiarbud"
-    }
+    clients: ["DEV Made IT", "WIARBUD", "SAVA GROUP", "Kraina Snów"],
+    subProjects: [
+      {
+        name: "DEV Made IT",
+        url: "https://dev-made.it"
+      },
+      {
+        name: "WIARBUD",
+        url: "https://wiarbud.dev-made.it"
+      },
+      {
+        name: "SAVA GROUP",
+        url: "https://sava-group.pl"
+      },
+      {
+        name: "Kraina Snów",
+        url: "https://kraina-snow.dev-made.it"
+      }
+    ]
   }
 ];

@@ -1,6 +1,13 @@
 export type ProjectStatus = "Active" | "Staging" | "Archived";
 export type ProjectCategory = "Demo" | "Internal" | "Production";
 
+export interface SubProject {
+  /** Sub-project name */
+  name: string;
+  /** Sub-project URL */
+  url: string;
+}
+
 export interface Project {
   /** Project id - should be unique */
   id?: string;
@@ -62,6 +69,9 @@ export interface Project {
 
   /** Technologies used - should match Technology.name values for consistency */
   technologies: string[];
+
+  /** Optional sub-projects for template-based projects */
+  subProjects?: SubProject[];
 }
 
 export interface Technology {

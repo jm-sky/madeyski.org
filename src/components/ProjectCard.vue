@@ -48,6 +48,24 @@ const { project, dense = false } = defineProps<{
 
     <p v-if="!dense" class="text-muted-foreground leading-relaxed">{{ project.description }}</p>
 
+    <div v-if="!dense && project?.subProjects?.length" class="border-l-4 border-blue-200 pl-4 bg-blue-50/50 rounded-r-lg py-3">
+      <h5 class="font-semibold text-blue-900/80 mb-2">Realizacje:</h5>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div
+          v-for="subProject in project.subProjects"
+          :key="subProject.name"
+          class="inline-flex items-center gap-1"
+        >
+          <Link
+            :href="subProject.url"
+            class="text-sm font-medium text-blue-600 hover:text-blue-800"
+          >
+          {{ subProject.name }}
+          </Link>
+        </div>
+      </div>
+    </div>
+
     <div v-if="!dense && project?.achievements?.length">
       <h5 class="font-semibold text-green-700 mb-2">Osiągnięcia:</h5>
       <ul class="list-disc list-inside text-sm text-muted-foreground space-y-1">
