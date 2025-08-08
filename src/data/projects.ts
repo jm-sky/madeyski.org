@@ -82,7 +82,7 @@ export const projects: Project[] = [
     description: "A manufacturing execution system tailored to production floor operations, integrated with ERP, and extended with modules for service tracking and time & attendance (RCP). Supported RFID and barcode-based workflows.",
     myRole: "Lead Developer & System Architect",
     team: ["Tomasz Smykowski", "Piotr Lotka", "Jan Madeyski"],
-    technologies: ["PHP", "Microsoft SQL Server", "jQuery", "Bootstrap", "HTML"]
+    technologies: ["PHP", "Microsoft SQL Server", "JavaScript", "jQuery", "Bootstrap", "HTML"]
   },
   {
     id: "tax-order",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     description: "Tax Order is a web application for managing the tax order of a company.",
     myRole: "Full Stack Developer",
     team: ["Mariusz Roszkowski", "Piotr Lotka", "Jan Madeyski"],
-    technologies: ["EmberJS", "Ruby", "Ruby on Rails", "PostgreSQL", "HTML"]
+    technologies: ["EmberJS", "JavaScript", "Ruby", "Ruby on Rails", "PostgreSQL", "HTML"]
   },
   {
     id: "portal-klienta",
@@ -114,7 +114,7 @@ export const projects: Project[] = [
       users: 500
     },
     team: ["Piotr Kaczmarski", "Jan Madeyski", "Mateusz Tryniszewski", "Piotr Lotka", "Zbigniew Wiśnik", "Anna Narożnik", "Paweł Khmara", "Mariusz Roszkowski", "Edyta Szubińska", "Damdin Oyunkhu"],
-    technologies: ["PHP", "Laravel", "Microsoft SQL Server", "Vue.js", "HTML", "Docker", "Apache", "Nginx", "Git"],
+    technologies: ["PHP", "Laravel", "Microsoft SQL Server", "Vue.js", "JavaScript", "HTML", "Docker", "Apache", "Nginx", "Git"],
     links: {
       demo: "https://portal-klienta.sklodowscy.pl"
     }
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     dateEnd: "2025-04-01",
     description: "Built a modern web portal that integrates with Poland's official e-Doręczenia (electronic delivery) system, enabling secure digital document delivery and receipt confirmation. The application features a responsive Vue.js frontend and a robust Django backend handling API communications with government services.",
     myRole: "Full Stack Developer",
-    technologies: ["Python", "Django", "Vue.js", "TailwindCSS", "HTML", "CSS", "JavaScript", "Git", "Docker"]
+    technologies: ["Python", "Django", "Vue.js", "TypeScript", "TailwindCSS", "HTML", "CSS", "Git", "Docker"]
   },
   {
     id: "jira-integration",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
     description: "Built a flexible document generation microservice that creates professional business documents from templates. The system handles dynamic content injection, formatting, and supports various output formats for generating contracts, agreements, and other business documentation with consistent branding and legal compliance.",
     myRole: "Full Stack Developer & System Architect",
     team: ["Jan Madeyski", "Piotr Lotka"],
-    technologies: ["Python", "Flask", "JavaScript", "Vue.js", "HTML", "CSS",  "Git"],
+    technologies: ["Python", "Flask", "TypeScript", "Vue.js", "HTML", "CSS",  "Git"],
   },
   {
     id: "azure-ocr-service",
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     dateStart: "2025-05-01",
     description: "Implemented an intelligent document processing microservice leveraging Azure Computer Vision API to extract and digitize text from scanned documents, invoices, and forms. The service includes preprocessing capabilities, confidence scoring, and structured data extraction to automate document digitization workflows and reduce manual data entry.",
     myRole: "Full Stack Developer & System Architect",
-    technologies: ["Python", "Django", "Azure", "Docker", "Git", "Linux"],
+    technologies: ["Python", "Django", "Azure", "Vue.js", "TypeScript", "TailwindCSS", "Docker", "Git", "Linux"],
   },
   {
     id: "saasbase",
@@ -200,7 +200,7 @@ export const projects: Project[] = [
       teamSize: 1,
       users: 50
     },
-    technologies: ["PHP", "Laravel", "PostgreSQL", "HTML", "CSS", "JavaScript", "Vue.js", "TailwindCSS", "XML", "Docker", "Git", "Linux", "Caddy"]
+    technologies: ["PHP", "Laravel", "PostgreSQL", "HTML", "CSS", "TypeScript", "Vue.js", "TailwindCSS", "XML", "Docker", "Git", "Linux", "Caddy"]
   },
   {
     id: "company-hub",
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     dateStart: "2025-07-01",
     description: "Api service integrating company data from REGON, MF, VIES and IBAN APIs.",
     myRole: "Founder & Full Stack Developer",
-    technologies: ["Python", "FastAPI", "React", "Next.js", "HTML", "TailwindCSS", "PostgreSQL", "Docker", "Git", "Linux"],
+    technologies: ["Python", "FastAPI", "TypeScript", "React", "Next.js", "HTML", "TailwindCSS", "PostgreSQL", "Docker", "Git", "Linux"],
     links: {
       demo: "https://company-hub.dev-made.it"
     }
@@ -227,7 +227,7 @@ export const projects: Project[] = [
     dateStart: "2025-07-01",
     description: "Development of a personal website for a software engineer.",
     myRole: "Frontend Developer",
-    technologies: ["JavaScript", "Astro", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
+    technologies: ["TypeScript", "Astro", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
     clients: ["Jan Madeyski"],
     links: {
       demo: "https://madeyski.org",
@@ -244,7 +244,7 @@ export const projects: Project[] = [
     dateStart: "2025-07-01",
     description: "Development of companys web page for managing the construction of a building.",
     myRole: "Frontend Developer",
-    technologies: ["JavaScript", "Nuxt", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
+    technologies: ["TypeScript", "Nuxt", "TailwindCSS", "HTML", "CSS", "Git", "Caddy"],
     clients: ["WIARBUD Pavlo Baida"],
     links: {
       demo: "https://wiarbud.dev-made.it",

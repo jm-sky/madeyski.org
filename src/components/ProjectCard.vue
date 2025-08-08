@@ -81,7 +81,7 @@ const { project, dense = false } = defineProps<{
     </div>
 
     <div class="text-sm">
-      <span class="font-semibold text-muted-foreground">Technologie:</span>
+      <span v-if="!dense" class="font-semibold text-muted-foreground">Technologie:</span>
       <div class="flex items-center flex-wrap mt-2" :class="dense ? 'gap-1' : 'gap-2'">
         <Badge
           v-for="tech in (dense ? project.technologies.slice(0, 6) : project.technologies)"
