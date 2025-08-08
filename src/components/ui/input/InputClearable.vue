@@ -15,7 +15,7 @@ const clearSearch = () => {
     <Input
       v-model="modelValue"
       placeholder="Szukaj projektów..."
-      class="pr-10"
+      class="pr-10 text-sm"
     />
     <Button
       v-if="modelValue.toString().trim() !== ''"

@@ -36,7 +36,7 @@ const { project } = defineProps<{
       </div>
       <div class="flex items-center md:justify-center gap-2 whitespace-nowrap">
         <User :size="16" />
-        <span>{{ project.myRole }}</span>
+        <span class="max-w-full truncate">{{ project.myRole }}</span>
       </div>
       <div class="flex items-center gap-2">
         <Building2 :size="16" />

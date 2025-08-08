@@ -111,3 +111,9 @@ const selectedLabel = computed(() => {
     </SelectPortal>
   </SelectRoot>
 </template>
+
+<style scoped>
+[data-placeholder] {
+  color: var(--color-muted-foreground);
+}
+</style>

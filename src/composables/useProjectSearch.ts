@@ -62,7 +62,16 @@ export function useProjectSearch(projects: Project[]): {
 
   // Enhanced search and filter function
   function performSearchAndFilter(term: string, technologies: string[]): Project[] {
-    let results = projects;
+    // Start from a shallow copy to avoid mutating the original data order
+    let results = projects.slice();
+
+    // Helper: effective timestamp for sorting newest → oldest
+    const getProjectSortTimestamp = (project: Project): number => {
+      // Treat ongoing projects as the newest
+      if (project.dateEnd === null) return Number.MAX_SAFE_INTEGER;
+      const effectiveDate = project.dateEnd ?? project.dateStart;
+      return new Date(effectiveDate).getTime();
+    };
 
     // Apply technology filter first
     if (technologies.length > 0) {
@@ -79,8 +88,18 @@ export function useProjectSearch(projects: Project[]): {
           score: calculateSearchScore(project, term)
         }))
         .filter(({ score }) => score > 0)
-        .sort((a, b) => b.score - a.score)
+        // Primary sort by relevance score, tie-break by recency
+        .sort((a, b) => {
+          const byScore = b.score - a.score;
+          if (byScore !== 0) return byScore;
+          return getProjectSortTimestamp(b.project) - getProjectSortTimestamp(a.project);
+        })
         .map(({ project }) => project);
+    } else {
+      // Default sort (no text search): newest → oldest
+      results = results.sort(
+        (a, b) => getProjectSortTimestamp(b) - getProjectSortTimestamp(a)
+      );
     }
 
     return results;
