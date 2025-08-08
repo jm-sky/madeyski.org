@@ -17,6 +17,7 @@ const props = defineProps<{
 
 const searchTerm = defineModel<string>('searchTerm', { required: true });
 const selectedTechnologies = defineModel<string[]>('selectedTechnologies', { required: true });
+const dense = defineModel<boolean>('dense', { required: true });
 
 // Check if any filters are active
 const hasActiveFilters = computed(() =>
@@ -26,7 +27,17 @@ const hasActiveFilters = computed(() =>
 
 <template>
   <section>
-    <h2 class="text-2xl font-bold mb-6">Projekty</h2>
+    <div class="mb-6 flex items-center justify-between gap-4">
+      <h2 class="text-2xl font-bold">Projekty</h2>
+      <label class="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer select-none">
+        <input
+          type="checkbox"
+          class="size-4 accent-sky-600 cursor-pointer"
+          v-model="dense"
+        />
+        Dense mode
+      </label>
+    </div>
     <div>
       <!-- Filter Controls -->
       <div class="mb-8 space-y-4">
@@ -74,12 +85,16 @@ const hasActiveFilters = computed(() =>
       <TransitionGroup
         name="project"
         tag="ul"
-        class="grid grid-cols-1 gap-6"
+        :class="[
+          'grid gap-6',
+          dense ? 'grid-cols-2' : 'grid-cols-1'
+        ]"
       >
         <ProjectCard
           v-for="project in props.filteredProjects"
           :key="project.id"
           :project="project"
+          :dense="dense"
           class="transition-all duration-300 hover:scale-[1.02]"
         />
       </TransitionGroup>

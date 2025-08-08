@@ -2,12 +2,13 @@
 import type { Technology } from '../../types/experience';
 import TechnologyCard from '../TechnologyCard.vue';
 
-defineProps<{
+const props = defineProps<{
   groupedTechnologies: Record<string, Technology[]>;
   sortedLayerGroups: string[];
 }>();
 
 const selectedTechnologies = defineModel<string[]>('selectedTechnologies', { required: true });
+const dense = defineModel<boolean>('dense');
 
 const toggleTechnology = (technology: Technology) => {
   if (selectedTechnologies.value.includes(technology.name)) {
@@ -27,12 +28,16 @@ const toggleTechnology = (technology: Technology) => {
         :key="layer"
       >
         <h3 class="text-xl font-bold mb-6 text-sky-600 border-b border-sky-600/30 pb-2">{{ layer }}</h3>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul
+          class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          :class="dense ? 'grid-cols-2' : 'grid-cols-1'"
+        >
           <TechnologyCard
             v-for="technology in groupedTechnologies[layer]"
             :key="technology.name"
             :technology="technology"
             :is-selected="selectedTechnologies.includes(technology.name)"
+            :dense="dense"
             @toggle="toggleTechnology(technology)"
           />
         </ul>

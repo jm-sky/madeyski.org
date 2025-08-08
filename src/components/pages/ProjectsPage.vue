@@ -10,6 +10,7 @@ import {
   layerOrder
 } from '../../utils/experience';
 import { useProjectSearch } from '../../composables/useProjectSearch';
+import { ref } from 'vue';
 
 // Process data
 const technologies: Technology[] = calculateTechnologyStats(projects, baseTechnologies);
@@ -24,6 +25,9 @@ const {
   filteredProjects,
   clearFilters
 } = useProjectSearch(projects);
+
+// Dense mode toggle
+const dense = ref(false);
 </script>
 
 <template>
@@ -31,6 +35,7 @@ const {
     <ProjectSection
       v-model:search-term="searchTerm"
       v-model:selected-technologies="selectedTechnologies"
+      v-model:dense="dense"
       :filtered-projects="filteredProjects"
       :available-technologies="availableTechnologies"
       :clear-filters="clearFilters"
@@ -38,6 +43,7 @@ const {
 
     <TechnologySection
       v-model:selected-technologies="selectedTechnologies"
+      v-model:dense="dense"
       :grouped-technologies="groupedTechnologies"
       :sorted-layer-groups="sortedLayerGroups"
     />
