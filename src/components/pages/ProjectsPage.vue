@@ -11,6 +11,7 @@ import {
 } from '../../utils/experience';
 import { useProjectSearch } from '../../composables/useProjectSearch';
 import { ref } from 'vue';
+import { TooltipProvider } from '../ui/tooltip';
 
 // Process data
 const technologies: Technology[] = calculateTechnologyStats(projects, baseTechnologies);
@@ -31,21 +32,23 @@ const dense = ref(false);
 </script>
 
 <template>
-  <div class="space-y-16 text-justify">
-    <ProjectSection
-      v-model:search-term="searchTerm"
-      v-model:selected-technologies="selectedTechnologies"
-      v-model:dense="dense"
-      :filtered-projects="filteredProjects"
-      :available-technologies="availableTechnologies"
-      :clear-filters="clearFilters"
-    />
+  <TooltipProvider :delay-duration="200">
+    <div class="space-y-16 text-justify">
+      <ProjectSection
+        v-model:search-term="searchTerm"
+        v-model:selected-technologies="selectedTechnologies"
+        v-model:dense="dense"
+        :filtered-projects="filteredProjects"
+        :available-technologies="availableTechnologies"
+        :clear-filters="clearFilters"
+      />
 
-    <TechnologySection
-      v-model:selected-technologies="selectedTechnologies"
-      v-model:dense="dense"
-      :grouped-technologies="groupedTechnologies"
-      :sorted-layer-groups="sortedLayerGroups"
-    />
-  </div>
+      <TechnologySection
+        v-model:selected-technologies="selectedTechnologies"
+        v-model:dense="dense"
+        :grouped-technologies="groupedTechnologies"
+        :sorted-layer-groups="sortedLayerGroups"
+      />
+    </div>
+  </TooltipProvider>
 </template>

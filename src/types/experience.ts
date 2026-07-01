@@ -1,4 +1,10 @@
-export type ProjectStatus = "Active" | "Staging" | "Archived";
+/**
+ * Deployment/operational status of the delivered system — NOT whether it's still
+ * being actively developed. A project can be "Live" for years after development
+ * ended (see `dateEnd`); development activity is a separate axis, signaled by
+ * `dateEnd === null` (ongoing engagement) vs. a set `dateEnd` (initial build finished).
+ */
+export type ProjectStatus = "Live" | "Staging" | "Retired";
 export type ProjectCategory = "Demo" | "Internal" | "Production";
 
 export interface SubProject {
@@ -30,7 +36,11 @@ export interface Project {
   /** Company or organization where the project was developed */
   company?: null | string;
 
-  /** Project end date in YYYY-MM-DD format, null if ongoing */
+  /**
+   * Date active development/engagement ended, in YYYY-MM-DD format.
+   * `null` means development is still ongoing today — this is the "dev status" axis,
+   * independent of `status` (which tracks whether the delivered system is still live).
+   */
   dateEnd: null | string;
 
   /** Project start date in YYYY-MM-DD format */

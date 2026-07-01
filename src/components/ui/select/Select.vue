@@ -12,7 +12,7 @@ import {
   SelectValue,
   SelectViewport
 } from 'reka-ui'
-import { ChevronDown, ChevronUp, Check } from 'lucide-vue-next'
+import { ChevronDown, ChevronUp, Check } from '@lucide/vue'
 import { cn } from "@/lib/utils"
 import { computed, type HTMLAttributes } from "vue"
 

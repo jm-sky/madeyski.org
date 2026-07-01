@@ -3,7 +3,7 @@ import type { Project } from '../../types/experience';
 import ProjectCard from '../ProjectCard.vue';
 import InputClearable from '../ui/input/InputClearable.vue';
 import Button from '../ui/button/Button.vue';
-import { X } from 'lucide-vue-next';
+import { X } from '@lucide/vue';
 import { computed } from 'vue';
 import TechnologyFilter from '../TechnologyFilter.vue';
 import ActiveFilters from './ActiveFilters.vue';

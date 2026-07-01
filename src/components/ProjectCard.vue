@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Building2, Calendar, User } from "lucide-vue-next";
+import { Building2, Calendar, User } from "@lucide/vue";
 import type {
   Project,
   ProjectCategory,
@@ -8,14 +8,19 @@ import type {
 import { formatDateRange } from "../utils/dateFormatter";
 import { firstUp } from "../utils/firstUp";
 import { getPlural } from "../utils/getPlural";
-import { getStatusVariant, getCategoryVariant } from "../utils/variants";
+import { getStatusDescription, getStatusVariant, getCategoryVariant } from "../utils/variants";
 import { Badge } from "./ui/badge";
 import Link from "./ui/Link.vue";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const { project, dense = false } = defineProps<{
   project: Project;
   dense?: boolean;
 }>();
+
+const DATE_RANGE_TOOLTIP = "Okres realizacji projektu";
+const ROLE_TOOLTIP = "Moja rola w projekcie";
+const COMPANY_TOOLTIP = "Firma lub kontekst, w ramach którego zrealizowano projekt";
 </script>
 
 <template>
@@ -26,24 +31,44 @@ const { project, dense = false } = defineProps<{
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
       <h4 class="text-xl sm:text-2xl font-bold" :id="project.id">{{ project.name }}</h4>
       <div class="flex items-center gap-2 flex-shrink-0">
-        <Badge v-if="project.status" :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
+        <Tooltip v-if="project.status">
+          <TooltipTrigger as-child>
+            <Badge :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
+          </TooltipTrigger>
+          <TooltipContent>{{ getStatusDescription(project.status) }}</TooltipContent>
+        </Tooltip>
         <Badge v-if="project.category" :variant="getCategoryVariant(project.category)">{{ project.category }}</Badge>
       </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] text-sm text-muted-foreground" :class="dense ? 'gap-2' : 'gap-4'">
-      <div class="flex items-center gap-2 min-w-46">
-        <Calendar :size="16" />
-        <span class="max-w-full truncate">{{ formatDateRange(project.dateStart, project.dateEnd, true) }}</span>
-      </div>
-      <div v-if="!dense" class="flex items-center md:justify-center gap-2 whitespace-nowrap">
-        <User :size="16" />
-        <span class="max-w-full truncate">{{ project.myRole }}</span>
-      </div>
-      <div v-if="!dense" class="flex items-center gap-2">
-        <Building2 :size="16" />
-        <span class="max-w-full truncate">{{ project.company ?? "Freelance" }}</span>
-      </div>
+      <Tooltip>
+        <TooltipTrigger as-child>
+          <div class="flex items-center gap-2 min-w-46">
+            <Calendar :size="16" />
+            <span class="max-w-full truncate">{{ formatDateRange(project.dateStart, project.dateEnd, true) }}</span>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>{{ DATE_RANGE_TOOLTIP }}</TooltipContent>
+      </Tooltip>
+      <Tooltip v-if="!dense">
+        <TooltipTrigger as-child>
+          <div class="flex items-center md:justify-center gap-2 whitespace-nowrap">
+            <User :size="16" />
+            <span class="max-w-full truncate">{{ project.myRole }}</span>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>{{ ROLE_TOOLTIP }}</TooltipContent>
+      </Tooltip>
+      <Tooltip v-if="!dense">
+        <TooltipTrigger as-child>
+          <div class="flex items-center gap-2">
+            <Building2 :size="16" />
+            <span class="max-w-full truncate">{{ project.company ?? "Freelance" }}</span>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>{{ COMPANY_TOOLTIP }}</TooltipContent>
+      </Tooltip>
     </div>
 
     <p v-if="!dense" class="text-muted-foreground leading-relaxed">{{ project.description }}</p>
