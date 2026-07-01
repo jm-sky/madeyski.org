@@ -235,6 +235,22 @@ export const projects: Project[] = [
     }
   },
   {
+    id: "gear-stack",
+    name: "Gear Stack",
+    category: "Production",
+    status: "Live",
+    company: "DEV Made IT",
+    dateStart: "2025-11-18",
+    dateEnd: null,
+    description: "A full-stack web application for managing survival gear, bug-out bags, and outdoor equipment, combining offline-first localStorage storage with a synchronized backend for multi-user, multi-device use. Features hierarchical gear containers with nested items, weight and readiness tracking, rich item metadata (category, priority, expiration, shelf life), and AI-ready JSON/Markdown/CSV import-export. The backend provides JWT authentication with OAuth and WebAuthn/passkey-based 2FA, a role system (Owner, Premium, Admin, User), and Stripe-powered subscription billing (Free/Pro/Pro Plus tiers) alongside AI-assisted gear recommendations, a public container gallery, and an admin dashboard.",
+    myRole: "Founder & Full Stack Developer",
+    technologies: ["Vue.js", "TypeScript", "Pinia", "TailwindCSS", "Python", "FastAPI", "PostgreSQL", "Redis", "WebAuthn", "Docker", "Git", "Linux", "Caddy"],
+    links: {
+      demo: "https://gear-stack.ovh",
+      github: "https://github.com/jm-sky/gear-stack"
+    }
+  },
+  {
     id: "dev-made-it-template",
     name: "DEV Made IT Template",
     category: "Production",

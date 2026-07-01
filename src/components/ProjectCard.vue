@@ -13,7 +13,7 @@ const { project, dense = false } = defineProps<{
   dense?: boolean;
 }>();
 
-const CARD_CLASS = "flex flex-col border border-border rounded-lg bg-white/30 hover:scale-102 hover:bg-white/50 hover:shadow-lg transition-all duration-300";
+const CARD_CLASS = "flex flex-col min-w-0 border border-border rounded-lg bg-white/30 hover:scale-102 hover:bg-white/50 hover:shadow-lg transition-all duration-300";
 </script>
 
 <template>
@@ -27,13 +27,13 @@ const CARD_CLASS = "flex flex-col border border-border rounded-lg bg-white/30 ho
         <div class="flex flex-col gap-3 cursor-pointer text-left" role="button" tabindex="0">
           <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
             <h4 class="text-xl sm:text-2xl font-bold">{{ project.name }}</h4>
-            <div class="flex items-center gap-2 flex-shrink-0">
+            <div class="flex items-center gap-2 flex-wrap flex-shrink-0">
               <Badge v-if="project.status" :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
               <Badge v-if="project.category" :variant="getCategoryVariant(project.category)">{{ project.category }}</Badge>
             </div>
           </div>
 
-          <div class="flex items-center gap-2 text-sm text-muted-foreground min-w-46">
+          <div class="flex items-center gap-2 text-sm text-muted-foreground min-w-0">
             <Calendar :size="16" />
             <span class="max-w-full truncate">{{ formatDateRange(project.dateStart, project.dateEnd, true) }}</span>
           </div>
