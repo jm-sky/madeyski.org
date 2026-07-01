@@ -18,3 +18,9 @@ export const PROJECT_CATEGORY_VARIANTS: Record<ProjectCategory, BadgeVariants['v
   Internal: 'info',
   Demo: 'muted'
 } as const;
+
+export const PROJECT_CATEGORY_DESCRIPTIONS: Record<ProjectCategory, string> = {
+  Production: 'Projekt zrealizowany dla klienta lub jako produkt komercyjny.',
+  Internal: 'Wewnętrzne narzędzie lub projekt firmowy, nie tworzony bezpośrednio dla klienta zewnętrznego.',
+  Demo: 'Osobisty projekt demonstracyjny / portfolio.'
+} as const;
