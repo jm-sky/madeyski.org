@@ -1,14 +1,33 @@
-import { computed, type ComputedRef, ref, type Ref } from 'vue';
+import { computed, type ComputedRef, onMounted, ref, type Ref, type WritableComputedRef } from 'vue';
 import type { Project } from '../types/experience';
 
 export function useProjectSearch(projects: Project[]): {
-  searchTerm: Ref<string>;
+  searchTerm: WritableComputedRef<string>;
   selectedTechnologies: Ref<string[]>;
   availableTechnologies: ComputedRef<string[]>;
   filteredProjects: ComputedRef<Project[]>;
   clearFilters: () => void;
 } {
-  const searchTerm: Ref<string> = ref('');
+  // Synced with the `q` URL query param so a page refresh keeps the search term.
+  // The URL is only read after mount (not during setup) so the initial client
+  // render matches the static SSR output — otherwise Vue's hydration would see
+  // a mismatch across the whole filtered project list.
+  const searchTermRaw: Ref<string> = ref('');
+  const searchTerm = computed({
+    get: () => searchTermRaw.value,
+    set: (value: string) => {
+      searchTermRaw.value = value;
+      if (typeof window === 'undefined') return;
+      const url = new URL(window.location.href);
+      if (value) url.searchParams.set('q', value);
+      else url.searchParams.delete('q');
+      window.history.replaceState(window.history.state, '', url);
+    }
+  });
+  onMounted(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) searchTermRaw.value = q;
+  });
   const selectedTechnologies: Ref<string[]> = ref([]);
 
   // Get all unique technologies from projects, sorted alphabetically

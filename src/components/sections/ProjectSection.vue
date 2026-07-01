@@ -56,9 +56,8 @@ const hasActiveFilters = computed(() =>
               :available-technologies="availableTechnologies"
             />
 
-            <div class="flex items-end">
+            <div v-if="hasActiveFilters" class="flex items-end">
               <Button
-                v-if="hasActiveFilters"
                 variant="outline"
                 size="default"
                 @click="clearFilters"
