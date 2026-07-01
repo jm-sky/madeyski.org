@@ -21,20 +21,29 @@ const COMPANY_TOOLTIP = "Firma lub kontekst, w ramach którego zrealizowano proj
 <template>
   <div class="flex flex-col gap-4">
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
-      <h4 class="text-xl sm:text-2xl font-bold" :id="project.id">{{ project.name }}</h4>
-      <div class="flex items-center gap-2 flex-shrink-0">
-        <Tooltip v-if="project.status">
-          <TooltipTrigger as-child>
-            <Badge :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
-          </TooltipTrigger>
-          <TooltipContent>{{ getStatusDescription(project.status) }}</TooltipContent>
-        </Tooltip>
-        <Tooltip v-if="project.category">
-          <TooltipTrigger as-child>
-            <Badge :variant="getCategoryVariant(project.category)">{{ project.category }}</Badge>
-          </TooltipTrigger>
-          <TooltipContent>{{ getCategoryDescription(project.category) }}</TooltipContent>
-        </Tooltip>
+      <h4
+        class="text-xl sm:text-2xl font-bold"
+        :class="{ 'order-2 sm:order-none': !!$slots.actions }"
+        :id="project.id"
+      >{{ project.name }}</h4>
+      <div
+        class="flex items-center gap-2 flex-shrink-0"
+        :class="{ 'order-1 sm:order-none justify-between w-full sm:w-auto': !!$slots.actions }"
+      >
+        <div class="flex items-center gap-2 flex-wrap">
+          <Tooltip v-if="project.status">
+            <TooltipTrigger as-child>
+              <Badge :variant="getStatusVariant(project.status)">{{ firstUp(project.status) }}</Badge>
+            </TooltipTrigger>
+            <TooltipContent>{{ getStatusDescription(project.status) }}</TooltipContent>
+          </Tooltip>
+          <Tooltip v-if="project.category">
+            <TooltipTrigger as-child>
+              <Badge :variant="getCategoryVariant(project.category)">{{ project.category }}</Badge>
+            </TooltipTrigger>
+            <TooltipContent>{{ getCategoryDescription(project.category) }}</TooltipContent>
+          </Tooltip>
+        </div>
         <slot name="actions" />
       </div>
     </div>
