@@ -32,7 +32,7 @@ const isActive = (link: Link) => {
   <BackgroundBar class="absolute left-0 right-0 top-4" />
 
   <nav class="nav-bar container w-full max-w-screen-sm mx-auto backdrop-blur-xs">
-    <ul class="w-full px-2 z-10 flex flex-row items-center justify-evenly gap-2 text-xl font-black">
+    <ul class="w-full px-2 z-10 flex flex-row items-center justify-evenly gap-1 sm:gap-2 text-base sm:text-xl font-black">
       {links.map((link) => (
         <li>
           <a
@@ -74,7 +74,7 @@ const isActive = (link: Link) => {
   }
 
   .nav-bar a {
-    @apply px-2 py-4 text-black hover:text-white/70 transition-colors tracking-wider;
+    @apply px-1 py-4 sm:px-2 text-black hover:text-white/70 transition-colors tracking-wider;
     text-shadow: rgba(200, 255, 200, 0.8) 1px 2px 4px;
     transition: all linear 0.3s;
 

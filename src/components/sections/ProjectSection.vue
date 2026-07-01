@@ -85,8 +85,8 @@ const hasActiveFilters = computed(() =>
         name="project"
         tag="ul"
         :class="[
-          'grid gap-6',
-          dense ? 'grid-cols-2' : 'grid-cols-1'
+          'grid',
+          dense ? 'grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6' : 'grid-cols-1 gap-6'
         ]"
       >
         <ProjectCard
