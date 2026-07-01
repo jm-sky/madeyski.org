@@ -8,10 +8,13 @@ import Footer from "../components/navigation/Footer.astro";
 import NavBar from "../components/navigation/NavBar.astro";
 
 interface Props {
+  description?: string;
   title: string;
 }
 
-const { title = "Start" } = Astro.props;
+const { description = "Jan Madeyski — full stack developer z ponad 10-letnim doświadczeniem w tworzeniu aplikacji internetowych.", title = "Start" } = Astro.props;
+const pageTitle = `Madeyski.org | ${title}`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -19,10 +22,22 @@ const { title = "Start" } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta content="width=device-width" name="viewport" />
-    <meta content="My personal website" name="description" />
+    <meta content={description} name="description" />
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<link href="/favicon.ico" rel="icon" type="image/x-icon" />
-		<title>Madeyski.org | {title}</title>
+    <link href={canonicalUrl} rel="canonical" />
+		<title>{pageTitle}</title>
+
+    <meta content={pageTitle} property="og:title" />
+    <meta content={description} property="og:description" />
+    <meta content="website" property="og:type" />
+    <meta content={canonicalUrl} property="og:url" />
+    <meta content="Madeyski.org" property="og:site_name" />
+    <meta content="pl_PL" property="og:locale" />
+
+    <meta content="summary" name="twitter:card" />
+    <meta content={pageTitle} name="twitter:title" />
+    <meta content={description} name="twitter:description" />
 	</head>
 	<body class="flex flex-col min-h-screen bg-gray-400">
     <HorizonGradient />
@@ -31,7 +46,7 @@ const { title = "Start" } = Astro.props;
     <LogoText />
     <NavBar />
 
-    <div class="mt-6 px-8 md:px-16 py-4 md:py-8 container w-full max-w-screen-lg mx-auto bg-white/60 backdrop-blur-lg rounded-3xl shadow-md/30">
+    <div class="mt-6 px-8 md:px-16 py-4 md:py-8 container w-full max-w-5xl mx-auto bg-white/60 backdrop-blur-lg rounded-3xl shadow-md/30">
       <slot />
     </div>
 

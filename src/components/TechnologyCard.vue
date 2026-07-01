@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Technology } from "../types/experience";
 import { getPlural } from "../utils/getPlural";
-import { CheckIcon, FilterIcon, FilterXIcon } from "lucide-vue-next";
+import { CheckIcon, FilterIcon, FilterXIcon } from "@lucide/vue";
 
 const { technology, isSelected = false, dense = false } = defineProps<{
   technology: Technology

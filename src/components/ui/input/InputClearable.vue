@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { X } from 'lucide-vue-next';
+import { X } from '@lucide/vue';
 import Button from '../button/Button.vue';
 import Input from './Input.vue';
 
