@@ -5,6 +5,20 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default [
+  // Global ignores (replaces .eslintignore)
+  {
+    ignores: [
+      'dist/**',
+      '.astro/**',
+      'node_modules/**',
+      '**/*.d.ts',
+      '*.log',
+      'pnpm-lock.yaml',
+      'package-lock.json',
+      'yarn.lock',
+    ],
+  },
+
   // Base configurations
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -88,15 +102,5 @@ export default [
         project: './tsconfig.json',
       },
     },
-  },
-
-  // Ignore patterns
-  {
-    ignores: [
-      'dist/**',
-      '.astro/**',
-      'node_modules/**',
-      '**/*.d.ts',
-    ],
   },
 ];
