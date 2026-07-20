@@ -62,16 +62,16 @@ export interface Project {
   /** Project name - should be descriptive and professional */
   name: string;
 
-  /** Project scale/scope indicators */
+  /** Project scale/scope indicators — prefer approximate labels over exact figures */
   scale?: {
     /** Budget range if relevant */
     budget?: "large" | "medium" | "small";
     /** Duration in months */
     duration?: number;
-    /** Team size */
-    teamSize?: number;
-    /** Approximate number of users/beneficiaries */
-    users?: number;
+    /** Approximate team size (avoid exact headcount) */
+    teamSize?: "solo" | "small" | "medium" | "large";
+    /** Approximate user base (avoid exact counts) */
+    users?: "dozens" | "hundreds" | "thousands";
   };
 
   /** Team members who worked on the project */
