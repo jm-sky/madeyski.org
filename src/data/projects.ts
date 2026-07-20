@@ -19,7 +19,7 @@ export const projects: Project[] = [
     name: "Logistics Center",
     category: "Production",
     status: "Live",
-    clients: ["Padma Art", "Padma30", "Novigo"],
+    clients: ["Home décor group (3 companies)"],
     company: "Skłodowscy sp. z o.o.",
     dateEnd: "2015-09-01",
     dateStart: "2015-06-01",
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     name: "Production planning",
     category: "Production",
     status: "Retired",
-    clients: ["B.D.Art"],
+    clients: ["Furniture manufacturer"],
     company: "Skłodowscy sp. z o.o.",
     dateEnd: "2016-06-01",
     dateStart: "2015-11-01",
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     name: "Warehouse Management System (WMS)",
     category: "Production",
     status: "Live",
-    clients: ["Padma Art", "Padma30", "Novigo"],
+    clients: ["Home décor group (3 companies)"],
     company: "Skłodowscy sp. z o.o.",
     dateEnd: "2016-07-01",
     dateStart: "2015-02-01",
@@ -61,11 +61,11 @@ export const projects: Project[] = [
     name: "EDI",
     category: "Production",
     status: "Live",
-    clients: ["Padma Art", "Padma30", "Novigo"],
+    clients: ["Home décor group (3 companies)"],
     company: "Skłodowscy sp. z o.o.",
     dateEnd: "2018-01-01",
     dateStart: "2015-01-01",
-    description: "EDI integration between IKEA and their suppliers integrated with Asseco Softlab ERP.",
+    description: "EDI integration between a major international retailer and their suppliers, integrated with Asseco Softlab ERP.",
     myRole: "Integration Support Developer",
     team: ["Tomasz Smykowski", "Krzysztof Góra", "Jan Madeyski"],
     technologies: ["Asseco Softlab ERP", "Microsoft SQL Server", "Scala", "XML", "EDI"]
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     name: "LiteMES",
     category: "Production",
     status: "Retired",
-    clients: ["B.D.Art"],
+    clients: ["Furniture manufacturer"],
     company: "Skłodowscy sp. z o.o.",
     dateEnd: "2017-02-01",
     dateStart: "2016-02-01",
@@ -110,8 +110,8 @@ export const projects: Project[] = [
     scale: {
       budget: "large",
       duration: 84, // 7 years ongoing
-      teamSize: 8,
-      users: 500
+      teamSize: "medium",
+      users: "hundreds"
     },
     team: ["Piotr Kaczmarski", "Jan Madeyski", "Mateusz Tryniszewski", "Piotr Lotka", "Zbigniew Wiśnik", "Anna Narożnik", "Paweł Khmara", "Mariusz Roszkowski", "Edyta Szubińska", "Damdin Oyunkhu"],
     technologies: ["PHP", "Laravel", "Microsoft SQL Server", "Vue.js", "JavaScript", "HTML", "Docker", "Apache", "Nginx", "Git"],
@@ -197,8 +197,8 @@ export const projects: Project[] = [
     scale: {
       budget: "small",
       duration: 4,
-      teamSize: 1,
-      users: 50
+      teamSize: "solo",
+      users: "dozens"
     },
     technologies: ["PHP", "Laravel", "PostgreSQL", "HTML", "CSS", "TypeScript", "Vue.js", "TailwindCSS", "XML", "Docker", "Git", "Linux", "Caddy"]
   },
@@ -311,7 +311,7 @@ export const projects: Project[] = [
     name: "Wymiary AI",
     category: "Internal",
     status: "Staging",
-    clients: ["Todis"],
+    clients: ["Corporate accounting client"],
     company: "Skłodowscy sp. z o.o.",
     dateEnd: null,
     dateStart: "2026-04-22",
