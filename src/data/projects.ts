@@ -319,5 +319,26 @@ export const projects: Project[] = [
     myRole: "Lead Developer & System Architect",
     team: ["Jan Madeyski", "Mateusz Tryniszewski"],
     technologies: ["n8n", "Qdrant", "Ollama", "PostgreSQL", "Redis", "React", "TypeScript", "Hono", "Python", "Docker", "Git"],
+  },
+  {
+    id: "zbory-chwz",
+    name: "Zbory CHWZ",
+    category: "Production",
+    status: "Live",
+    clients: ["CHWZ"],
+    company: "DEV Made IT",
+    dateStart: "2025-12-28",
+    dateEnd: null,
+    description: "A public congregation directory and multi-tenant management platform for CHWZ (Chrześcijańska Wspólnota Wolnych Zielonoświątkowców). Visitors can search congregations, view public profiles, and browse locations on an interactive Leaflet map with distance filtering. Authorized users manage congregation data with per-congregation roles; sensitive contact and GPS fields are encrypted at rest. Supports AI-assisted address/contact import from pasted text, Google Contacts sync, and an IMAP clergy e-mail import pipeline with admin review.",
+    myRole: "Founder & Full Stack Developer",
+    scale: {
+      budget: "small",
+      teamSize: "solo",
+    },
+    technologies: ["Vue.js", "TypeScript", "Pinia", "TailwindCSS", "Leaflet", "Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "Git", "Linux", "Nginx"],
+    links: {
+      demo: "https://zbory.chwz.waw.pl",
+      github: "https://github.com/jm-sky/zbory-chwz"
+    }
   }
 ];
